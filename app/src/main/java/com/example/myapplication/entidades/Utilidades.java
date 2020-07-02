@@ -1,7 +1,5 @@
 package com.example.myapplication.entidades;
 
-import java.util.Date;
-
 public class Utilidades {
 
     // Constantes de Usuario

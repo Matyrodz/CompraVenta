@@ -2,13 +2,13 @@ package com.example.myapplication.entidades;
 
 public class Categoria {
     private Integer id_Categoria, activo;
-    private String nombre, Descripcion;
+    private String nombre, descripcion;
 
     public Categoria(Integer id_Categoria, Integer activo, String nombre, String descripcion) {
         this.id_Categoria = id_Categoria;
         this.activo = activo;
         this.nombre = nombre;
-        Descripcion = descripcion;
+        this.descripcion = descripcion;
     }
 
     public Integer getId_Categoria() {
@@ -36,10 +36,10 @@ public class Categoria {
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
+        this.descripcion = descripcion;
     }
 }

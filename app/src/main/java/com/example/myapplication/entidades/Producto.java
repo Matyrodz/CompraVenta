@@ -2,18 +2,25 @@ package com.example.myapplication.entidades;
 
 public class Producto {
     private Integer _id,id_tienda,stock;
-    private String nombre,descripcion;
+    private String nombre,descripcion,imagen;
     private float precio;
 
-    // private static final String crear_tabla_productos = "CREATE TABLE productos (_id INTEGER PRIMARY KEY AUTOINCREMENT, id_tienda INTEGER, nombre TEXT, stock INTEGER, precio REAL, descripcion TEXT)";
-
-    public Producto(Integer _id, Integer id_tienda, Integer stock, String nombre, String descripcion, float precio) {
+    public Producto(Integer _id, Integer id_tienda, Integer stock, String nombre,String imagen, String descripcion, float precio) {
         this._id = _id;
         this.id_tienda = id_tienda;
         this.stock = stock;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
+        this.imagen = imagen;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public Integer get_id() {

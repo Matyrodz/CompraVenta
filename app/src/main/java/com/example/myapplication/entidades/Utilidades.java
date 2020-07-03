@@ -16,10 +16,10 @@ public class Utilidades {
             " INTEGER, "+CAMPO_ESTADO+" TEXT, "+CAMPO_TIPOCOMPROBANTE+" TEXT, "+ CAMPO_COMPROBANTE+" INTEGER, "+CAMPO_TOTAL+" FLOAT"+CAMPO_DATE+" DATETIME DEFAULT CURRENT_DATE";
 
     // Constantes de Producto
-    public static final String TABLA_PRODUCTO = "producto", CAMPO_STOCK = "stock", CAMPO_DESCRIPCION = "descripcion", CAMPO_IDTIENDA="id_tienda",CAMPO_PRECIO ="precio";
+    public static final String TABLA_PRODUCTO = "producto", CAMPO_STOCK = "stock", CAMPO_DESCRIPCION = "descripcion", CAMPO_IDTIENDA="id_tienda",CAMPO_PRECIO ="precio", CAMPO_IMAGEN = "imagen";
     // TABLA PRODUCTO
     public static final String CREAR_TABLA_PRODUCTO = "CREATE TABLE"+ TABLA_PRODUCTO+" ("+CAMPO_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+CAMPO_IDTIENDA+ " INTEGER, "+
-            CAMPO_STOCK+ " INTEGER, "+CAMPO_PRECIO+ " FLOAT, "+CAMPO_NOMBRE+ " TEXT, "+CAMPO_DESCRIPCION+ " TEXT";
+            CAMPO_STOCK+ " INTEGER, "+CAMPO_PRECIO+ " FLOAT, "+CAMPO_NOMBRE+ " TEXT, "+CAMPO_DESCRIPCION+ " TEXT"+CAMPO_IMAGEN+ " TEXT";
 
     // Constantes de Categoria
     public static final String TABLA_CATEGORIA = "categoria";

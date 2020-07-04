@@ -124,8 +124,4 @@ public class Personas {
         this.localidad = localidad;
     }
 
-
-
-
-    //  private static final String crear_tabla_usuario = "CREATE TABLE usuarios (_id INTEGER PRIMARY KEY AUTOINCREMENT, usuario TEXT, nombre TEXT, apellido TEXT, clave TEXT, email TEXT, direccion TEXT, localidad TEXT, latitud INTEGER, longitud INTEGER, activo INTEGER)";
 }

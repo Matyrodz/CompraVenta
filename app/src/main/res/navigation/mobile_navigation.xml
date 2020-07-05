@@ -14,12 +14,24 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.myapplication.data.model.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="Mis publicaciones"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.myapplication.data.model.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Mis ventas"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_carrito"
+        android:name="com.example.myapplication.data.model.ui.carrito.CarritoFragment"
+        android:label="Carrito"
+        tools:layout="@layout/fragment_carrito"/>
+
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.example.myapplication.data.model.ui.perfil.PerfilFragment"
+        android:label="Mi Perfil"
+        tools:layout="@layout/fragment_perfil"/>
 </navigation>

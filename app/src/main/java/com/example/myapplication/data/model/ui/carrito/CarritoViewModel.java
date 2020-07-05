@@ -1,16 +1,14 @@
-package com.example.myapplication.data.model.ui.home;
+package com.example.myapplication.data.model.ui.carrito;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
-
+public class CarritoViewModel {
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public CarritoViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Mostrar Home");
+        mText.setValue("Mostrar carrito");
     }
 
     public LiveData<String> getText() {

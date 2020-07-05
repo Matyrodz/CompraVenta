@@ -7,7 +7,6 @@
     android:background="#202732"
     tools:context=".MainActivity">
 
-
     <LinearLayout
         android:id="@+id/layout_sesion"
         android:layout_width="match_parent"
@@ -125,16 +124,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.3" />
     </LinearLayout>
-
-
-
-
-
-
-
-
-
-
 
 
 

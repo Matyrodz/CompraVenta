@@ -7,14 +7,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.myapplication.data.model.menu_principal;
 import com.example.myapplication.ui.login.LoginRegistro;
-/*import com.example.myapplication.data.model.menu_principal;
-import com.example.myapplication.ui.login.LoginActivity;*/
+/*import com.example.myapplication.ui.login.LoginActivity;*/
+
 
 public class MainActivity extends AppCompatActivity {
 
-    Button logIn;
-    Button register;
+    /*Button logIn;
+    Button register;*/
     Button ir;
     Button btn_registrarse;
 
@@ -47,9 +49,16 @@ public class MainActivity extends AppCompatActivity {
                 .add(R.id.layout_sesion,firsFragment)
                 .commit();
         /*logIn = (Button) findViewById(R.id.inicioSesionBtn);
-        register = (Button) findViewById(R.id.registrarBtn);
-        ir = (Button) findViewById(R.id.goTo);*/
+        register = (Button) findViewById(R.id.registrarBtn);*/
+        ir = (Button) findViewById(R.id.goTo);
 
+        ir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, menu_principal.class);
+                startActivity((i));
+            }
+        });
         /*logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,12 +75,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }));
 
-        ir.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, menu_principal.class);
-                startActivity((i));
-            }
+
+<<<<<<< HEAD
         }));*/
+
     }
 }

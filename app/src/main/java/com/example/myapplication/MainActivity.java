@@ -27,8 +27,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btn_registrarse = (Button) findViewById(R.id.btn_registrarse);
-
         btn_registrarse.setOnClickListener(viewRegistrarseListener);
+        ir = (Button) findViewById(R.id.goTo);
+        ir.setOnClickListener(viewMenuListener);
     }
 
     private View.OnClickListener viewRegistrarseListener = new View.OnClickListener() {
@@ -36,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             Intent intent = new Intent(MainActivity.this, LoginRegistro.class);
             startActivity(intent);
+        }
+    };
+
+    private View.OnClickListener viewMenuListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(MainActivity.this, menu_principal.class);
+            startActivity((i));
         }
     };
 
@@ -48,36 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 .beginTransaction()
                 .add(R.id.layout_sesion,firsFragment)
                 .commit();
-        /*logIn = (Button) findViewById(R.id.inicioSesionBtn);
-        register = (Button) findViewById(R.id.registrarBtn);*/
-        ir = (Button) findViewById(R.id.goTo);
-
-        ir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, menu_principal.class);
-                startActivity((i));
-            }
-        });
-        /*logIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(i);
-            }
-        });
-
-        register.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Registrar.class);
-                startActivity(i);
-            }
-        }));
-
-
-<<<<<<< HEAD
-        }));*/
 
     }
 }

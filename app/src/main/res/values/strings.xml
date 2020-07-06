@@ -34,4 +34,11 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <!--Strings del layout de sesion-->
+    <string name="usuario">Usuario</string>
+    <string name="password">Password</string>
+    <string name="password_dos">Repetir Password</string>
+    <string name="btn_iniciar_sesion">Iniciar Sesion</string>
+    <string name="btn_registrarse">Registrarse</string>
 </resources>

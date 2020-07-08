@@ -14,7 +14,6 @@
             android:name=".ui.login.LoginRegistro"
             android:label="@string/title_activity_login_registro"
             ></activity>
-        android:theme="@style/AppTheme">
         <activity android:name=".CargarProducto"></activity>
         <activity
             android:name=".data.model.menu_principal"

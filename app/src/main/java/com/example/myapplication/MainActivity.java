@@ -3,13 +3,18 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.myapplication.data.model.menu_principal;
 import com.example.myapplication.ui.login.LoginRegistro;
+
+import java.sql.SQLInput;
 /*import com.example.myapplication.ui.login.LoginActivity;*/
 
 

@@ -3,7 +3,7 @@ package com.example.myapplication.entidades;
 public class Utilidades {
 
     // Constantes de Usuario
-    public static final String TABLA_USUARIO = "persona";
+    public static final String TABLA_USUARIO = "usuario";
     public static final String CAMPO_USUARIO = "usuario";
     public static final String CAMPO_ID = "id";
     public static final String CAMPO_NOMBRE = "nombre";
@@ -15,10 +15,11 @@ public class Utilidades {
     public static final String CAMPO_LATITUD = "latitud";
     public static final String CAMPO_LONGITUD = "longitud";
     public static final String CAMPO_ACTIVO = "activo";
+    public static final String CAMPO_ROL = "rol";
     // TABLA Usuario
-    public static final String CREAR_TABLA_USUARIO= "CREATE TABLE "+"" +  TABLA_USUARIO+" ("+CAMPO_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+CAMPO_USUARIO+" TEXT NOT NULL, "+CAMPO_NOMBRE +" TEXT NOT NULL, "+
-            CAMPO_APELLIDO + " TEXT NOT NULL, "+CAMPO_DIRECCION + " TEXT NOT NULL, "+ CAMPO_LOCALIDAD + " TEXT NOT NULL, "+ CAMPO_EMAIL + " TEXT NOT NULL, "+
-            CAMPO_LATITUD +" INTEGER NOT NULL, "+ CAMPO_LONGITUD+ " INTEGER NOT NULL, "+ CAMPO_ACTIVO + " INTEGER NOT NULL)";
+    public static final String CREAR_TABLA_USUARIO= "CREATE TABLE "+"" +  TABLA_USUARIO+" ("+CAMPO_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+CAMPO_USUARIO+" TEXT NOT NULL, "+CAMPO_NOMBRE +" TEXT NULL, "+
+            CAMPO_APELLIDO + " TEXT NULL, "+CAMPO_DIRECCION + " TEXT NULL, "+CAMPO_CLAVE+" TEXT NULL,"+ CAMPO_LOCALIDAD + " TEXT NULL, "+CAMPO_ROL + " TEXT NULL, "+ CAMPO_EMAIL + " TEXT NOT NULL, "+
+            CAMPO_LATITUD +" INTEGER NULL, "+ CAMPO_LONGITUD+ " INTEGER NULL, "+ CAMPO_ACTIVO + " INTEGER NULL)";
 
     // Constantes de venta
     public static final String TABLA_VENTA = "venta";
@@ -32,7 +33,7 @@ public class Utilidades {
     // TABLA TIENDA
     public static final String CREAR_TABLA_VENTA = "CREATE TABLE "+""+TABLA_VENTA +" ("+CAMPO_ID +" INTEGER PRIMARY KEY AUTOINCREMENT, "+
             CAMPO_ID_CLIENTE+" INTEGER NOT NULL, "+CAMPO_ID_VENDEDOR+ " INTEGER NOT NULL, "+CAMPO_ESTADO+" TEXT NOT NULL, "+
-            CAMPO_TIPOCOMPROBANTE+" TEXT NOT NULL, "+ CAMPO_COMPROBANTE+" INTEGER NOT NULL, "+CAMPO_TOTAL+" FLOAT NOT NULL"+CAMPO_DATE+ " DATETIME DEFAULT CURRENT_DATE)";
+            CAMPO_TIPOCOMPROBANTE+" TEXT NOT NULL, "+ CAMPO_COMPROBANTE+" INTEGER NOT NULL, "+CAMPO_TOTAL+" FLOAT NOT NULL, "+CAMPO_DATE+ " DATETIME DEFAULT CURRENT_DATE)";
 
     // Constantes de Producto
     public static final String TABLA_PRODUCTO = "producto";

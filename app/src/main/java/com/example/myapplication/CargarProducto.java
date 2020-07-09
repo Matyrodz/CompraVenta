@@ -26,7 +26,8 @@ import static com.example.myapplication.entidades.Utilidades.*;
 public class CargarProducto extends AppCompatActivity {
     ImageView imagen;
     Button btn_cargar;
-    EditText nombre_producto;
+    EditText nombre_producto, descripcion, precio, stock;
+    Uri path;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,27 +35,23 @@ public class CargarProducto extends AppCompatActivity {
         imagen = (ImageView) findViewById(R.id.imagenId);
 
         AdminSQLiteOpenHelper conn = new AdminSQLiteOpenHelper(this);
-        final SQLiteDatabase bd = conn.getWritableDatabase();
+        final SQLiteDatabase bd = conn.open();
         btn_cargar = (Button) findViewById(R.id.btnCargarProduct);
         btn_cargar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 nombre_producto = (EditText) findViewById(R.id.nombre_producto);
                 ContentValues values = new ContentValues();
-                values.put(CAMPO_NOMBRE, /*String.valueOf(nombre_producto.getText())*/"bici");
-                values.put(CAMPO_DESCRIPCION, "Rodol");
-                values.put(CAMPO_PRECIO, "12345");
+                values.put(CAMPO_NOMBRE, String.valueOf(nombre_producto.getText()));
+                values.put(CAMPO_DESCRIPCION, String.valueOf(descripcion.getText()));
+                values.put(CAMPO_PRECIO, /*Float.parseFloat(String.valueOf(precio.getText()))*/14);
                 values.put(CAMPO_IDTIENDA, 014);
-                values.put(CAMPO_STOCK, 15);
-                values.put(CAMPO_IMAGEN, "mipmap/imagensubida.png");
+                values.put(CAMPO_STOCK, /*Integer.parseInt(String.valueOf(stock.getText()))*/2);
+                values.put(CAMPO_IMAGEN, /*String.valueOf(path.getPath()*/"imagen/pieza.png");
                 bd.insert(TABLA_PRODUCTO, CAMPO_ID, values);
                 Toast.makeText(getApplicationContext(),
                          "El producto se cargo con éxito.", Toast.LENGTH_SHORT).show();
 
-              /*  String consulta = "SELECT nombre" + "(nombre like'" + "bici" + "%')";
-                Cursor fila = bd.rawQuery(consulta, null);
-                String objec = fila.getString(0);
-                Toast.makeText(getApplicationContext(), objec, Toast.LENGTH_SHORT).show();*/
             }
         });
     }
@@ -72,12 +69,9 @@ public class CargarProducto extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode==RESULT_OK){
-            Uri path = data.getData();
+            path = data.getData();
             imagen.setImageURI(path);
             imagen.setVisibility(View.VISIBLE);
         }
     }
-
-
-
 }

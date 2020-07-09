@@ -3,10 +3,11 @@ package com.example.myapplication.entidades;
 public class Utilidades {
 
     // Constantes de Usuario
-    public static final String TABLA_USUARIO = "persona", CAMPO_USUARIO = "usuario",CAMPO_ID = "id", CAMPO_NOMBRE = "nombre", CAMPO_CLAVE = "clave", CAMPO_APELLIDO = "apellido", CAMPO_EMAIL = "email", CAMPO_DIRECCION = "direccion", CAMPO_LOCALIDAD = "localidad",CAMPO_LATITUD = "latitud", CAMPO_LONGITUD = "longitud", CAMPO_ACTIVO = "activo";
+    public static final String TABLA_USUARIO = "usuario", CAMPO_USUARIO = "usuario",CAMPO_ID = "id", CAMPO_NOMBRE = "nombre", CAMPO_CLAVE = "clave", CAMPO_APELLIDO = "apellido", CAMPO_EMAIL = "email", CAMPO_DIRECCION = "direccion", CAMPO_LOCALIDAD = "localidad",CAMPO_LATITUD = "latitud", CAMPO_LONGITUD = "longitud"
+            , CAMPO_ACTIVO = "activo" , CAMPO_ROL="rol";
     // TABLA Usuario
     public static final String CREAR_TABLA_USUARIO= "CREATE TABLE " +  TABLA_USUARIO+" ("+CAMPO_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+CAMPO_USUARIO+" TEXT, "+CAMPO_NOMBRE + " TEXT, "+
-            CAMPO_APELLIDO + " TEXT, "+CAMPO_DIRECCION + " TEXT, "+ CAMPO_LOCALIDAD + " TEXT, "+ CAMPO_EMAIL + " TEXT, "+
+            CAMPO_APELLIDO + " TEXT, "+CAMPO_DIRECCION + " TEXT, "+ CAMPO_LOCALIDAD + " TEXT, "+ CAMPO_EMAIL + " TEXT, "+CAMPO_ROL + " TEXT, "+
             CAMPO_LATITUD +" INTEGER, "+ CAMPO_LONGITUD+ " INTEGER, "+ CAMPO_ACTIVO + " INTEGER";
 
     // Constantes de venta

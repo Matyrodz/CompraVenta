@@ -43,7 +43,7 @@ public class CargarProducto extends AppCompatActivity {
                 nombre_producto = (EditText) findViewById(R.id.nombre_producto);
                 ContentValues values = new ContentValues();
                 values.put(CAMPO_NOMBRE, String.valueOf(nombre_producto.getText()));
-                values.put(CAMPO_DESCRIPCION, String.valueOf(descripcion.getText()));
+                values.put(CAMPO_DESCRIPCION, /*String.valueOf(descripcion.getText())*/"roja");
                 values.put(CAMPO_PRECIO, /*Float.parseFloat(String.valueOf(precio.getText()))*/14);
                 values.put(CAMPO_IDTIENDA, 014);
                 values.put(CAMPO_STOCK, /*Integer.parseInt(String.valueOf(stock.getText()))*/2);

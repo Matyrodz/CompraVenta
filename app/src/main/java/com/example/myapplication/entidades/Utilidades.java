@@ -3,7 +3,7 @@ package com.example.myapplication.entidades;
 public class Utilidades {
 
     // Constantes de Usuario
-    public static final String TABLA_USUARIO = "persona";
+    public static final String TABLA_USUARIO = "usuario";
     public static final String CAMPO_USUARIO = "usuario";
     public static final String CAMPO_ID = "id";
     public static final String CAMPO_NOMBRE = "nombre";
@@ -14,11 +14,18 @@ public class Utilidades {
     public static final String CAMPO_LOCALIDAD = "localidad";
     public static final String CAMPO_LATITUD = "latitud";
     public static final String CAMPO_LONGITUD = "longitud";
+    public static final String CAMPO_ROL = "rol";
     public static final String CAMPO_ACTIVO = "activo";
     // TABLA Usuario
-    public static final String CREAR_TABLA_USUARIO= "CREATE TABLE "+"" +  TABLA_USUARIO+" ("+CAMPO_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+CAMPO_USUARIO+" TEXT NOT NULL, "+CAMPO_CLAVE+" TEXT NOT NULL, "+
+  /*  public static final String CREAR_TABLA_USUARIO= "CREATE TABLE "+"" +  TABLA_USUARIO+" ("+CAMPO_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+CAMPO_USUARIO+" TEXT NOT NULL, "+CAMPO_CLAVE+" TEXT NOT NULL, "+
             CAMPO_NOMBRE +" TEXT NOT NULL, "+ CAMPO_APELLIDO + " TEXT NOT NULL, "+CAMPO_DIRECCION + " TEXT NOT NULL, "+ CAMPO_LOCALIDAD + " TEXT NOT NULL, "+
-            CAMPO_EMAIL + " TEXT NOT NULL, "+ CAMPO_LATITUD +" INTEGER NOT NULL, "+ CAMPO_LONGITUD+ " INTEGER NOT NULL, "+ CAMPO_ACTIVO + " INTEGER NOT NULL)";
+            CAMPO_EMAIL + " TEXT NOT NULL, "+CAMPO_ROL + " TEXT, "+ CAMPO_LATITUD +" INTEGER NOT NULL, "+ CAMPO_LONGITUD+ " INTEGER NOT NULL, "+ CAMPO_ACTIVO + " INTEGER NOT NULL)";
+ */
+    // TABLA Usuario
+    public static final String CREAR_TABLA_USUARIO= "CREATE TABLE " +  TABLA_USUARIO+" ("+CAMPO_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+CAMPO_USUARIO+" TEXT, "+CAMPO_NOMBRE + " TEXT, "+
+            CAMPO_APELLIDO + " TEXT, "+CAMPO_DIRECCION + " TEXT, "+ CAMPO_LOCALIDAD + " TEXT, "+ CAMPO_EMAIL + " TEXT, "+CAMPO_ROL + " TEXT, "+
+            CAMPO_LATITUD +" INTEGER, "+ CAMPO_LONGITUD+ " INTEGER, "+ CAMPO_ACTIVO + " INTEGER";
+
 
     // Constantes de venta
     public static final String TABLA_VENTA = "venta";

@@ -87,7 +87,7 @@ public class LoginRegistro extends AppCompatActivity {
 
     }
     public boolean crearUsuario(Usuario us){
-        Usuario usuario=buscarUsuario(us.getUsuario());
+        Usuario usuario=null;//buscarUsuario(us.getUsuario());
         if(usuario == null) {
             ContentValues values = new ContentValues();
             values.put("usuario", us.getUsuario());

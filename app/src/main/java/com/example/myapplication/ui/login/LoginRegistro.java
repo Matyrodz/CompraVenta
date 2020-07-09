@@ -72,6 +72,8 @@ public class LoginRegistro extends AppCompatActivity {
                     limpiarDatos();
                 }catch (Exception c){
                     c.printStackTrace();
+                }
+                finally{
                     sql.close();
                 }
 

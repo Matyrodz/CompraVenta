@@ -7,11 +7,10 @@ import com.example.myapplication.AdminSQLiteOpenHelper;
 import com.example.myapplication.entidades.Usuario;
 
 public class PersonaDAO {
-    private AdminSQLiteOpenHelper conect;
+  /*  private AdminSQLiteOpenHelper conect;
 
     public PersonaDAO(Context context) {
         conect = new AdminSQLiteOpenHelper(context);
     }
-
-
+    */
 }

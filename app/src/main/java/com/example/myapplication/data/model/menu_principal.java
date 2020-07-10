@@ -1,6 +1,8 @@
 package com.example.myapplication.data.model;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -8,6 +10,8 @@ import android.view.Menu;
 import android.widget.Button;
 import android.widget.Toast;
 
+
+import com.example.myapplication.AdminSQLiteOpenHelper;
 import com.example.myapplication.CargarProducto;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.Opciones;

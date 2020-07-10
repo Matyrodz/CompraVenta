@@ -20,14 +20,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingBottom="16dp"
-            android:text="Cargar producto"
+            android:text="@string/cargar_producto"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text= "Nombre del producto" />
+            android:text= "@string/nombre_producto" />
 
         <EditText
             android:id="@+id/nombre_producto"
@@ -42,7 +42,7 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Precio" />
+            android:text="@string/precio" />
 
         <EditText
             android:id="@+id/precio"
@@ -57,7 +57,7 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cantidad disponible" />
+            android:text="@string/stock" />
 
         <EditText
             android:id="@+id/stock"
@@ -65,14 +65,14 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Ej: 1"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:textSize="14sp" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Descripcion" />
+            android:text="@string/descripcion" />
 
         <EditText
             android:id="@+id/descripcion"
@@ -88,13 +88,14 @@
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fotos" />
+            android:text="@string/fotos" />
 
         <ImageView
             android:id="@+id/imagenId"
-            android:layout_width="379dp"
-            android:layout_height="203dp"
-            android:visibility="gone"/>
+            android:layout_width="263dp"
+            android:layout_height="143dp"
+            android:gravity="center"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btnCargarImg"
@@ -105,8 +106,17 @@
             android:onClick="onclick"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
-            android:text="Selecciona Imagen" />
-
+            android:text="@string/select_img" />
+        <Button
+            android:id="@+id/btnCargarProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#FD5B01"
+            android:onClick="onclick"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="@string/btn_cargarproduct" />
 
     </LinearLayout>
 

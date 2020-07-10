@@ -5,15 +5,7 @@ public class Producto {
     private String nombre,descripcion,imagen;
     private float precio;
 
-    public Producto(Integer _id, Integer id_tienda, Integer stock, String nombre,String imagen, String descripcion, float precio) {
-        this._id = _id;
-        this.id_tienda = id_tienda;
-        this.stock = stock;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.imagen = imagen;
-    }
+    public Producto(){}
 
     public String getImagen() {
         return imagen;

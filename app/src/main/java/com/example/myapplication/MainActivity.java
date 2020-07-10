@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.myapplication.dao.PersonaDAO;
+import com.example.myapplication.dao.UsuarioDAO;
 import com.example.myapplication.data.model.menu_principal;
 import com.example.myapplication.ui.login.LoginRegistro;
 
@@ -25,12 +27,10 @@ public class MainActivity extends AppCompatActivity {
     Button ir;
     Button btn_registrarse;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         btn_registrarse = (Button) findViewById(R.id.btn_registrarse);
         btn_registrarse.setOnClickListener(viewRegistrarseListener);
         ir = (Button) findViewById(R.id.goTo);

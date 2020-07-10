@@ -21,6 +21,16 @@
     <string name="btn_iniciar_sesion">Conecte-se</string>
     <string name="btn_registrarse">Registro</string>
 
+    <!--Strings del registro de usuarios -->
+    <string name="cargar_producto">Carregar produto</string>
+    <string name="nombre_producto">Nome</string>
+    <string name="precio">preço</string>
+    <string name="stock">Stock</string>
+    <string name="descripcion">Descrição</string>
+    <string name="fotos">Fotos</string>
+    <string name="select_img">Selecione uma imagem</string>
+    <string name="btn_cargarproduct">Carregar produto</string>
+
     <!--Strings del menú de 3 puntos -->
     <string name="opciones">Opções</string>
     <string name="cerrar_sesion">Sair</string>

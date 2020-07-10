@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CompraVenta</string>
+    <string name="complete_los_siguientes_campos">Complete the following fields:</string>
+    <string name="nombre_de_usuario">Username</string>
+    <string name="contrase_a">Password</string>
+    <string name="iniciar_sesi_n">Log in</string>
+    <string name="title_activity_menu_principal">Main menu</string>
+
+    <!--Strings del Side bar-->
+    <string name="menu_home">Home</string>
+    <string name="menu_perfil">Profile</string>
+    <string name="menu_publicaciones">My products</string>
+    <string name="menu_ventas">Sales</string>
+    <string name="menu_carrito">Cart</string>
+
+    <!--Strings del layout de sesion-->
+    <string name="usuario">User</string>
+    <string name="password">Password</string>
+    <string name="password_dos">Repeat Password</string>
+    <string name="btn_iniciar_sesion">Log in</string>
+    <string name="btn_registrarse">Register</string>
+
+    <!--Strings del menú de 3 puntos -->
+    <string name="opciones">Options</string>
+    <string name="cerrar_sesion">Log out</string>
+
+    <!--Strings del menú opciones -->
+    <string name="btnAcept">Accept</string>
+</resources>

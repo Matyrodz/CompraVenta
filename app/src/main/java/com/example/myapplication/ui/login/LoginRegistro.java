@@ -76,7 +76,6 @@ public class LoginRegistro extends AppCompatActivity {
                 finally{
                     sql.close();
                 }
-
             }
         }
     };

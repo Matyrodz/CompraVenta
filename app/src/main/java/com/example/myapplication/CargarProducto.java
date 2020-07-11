@@ -4,7 +4,9 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,28 +16,40 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.myapplication.entidades.Utilidades;
 
 import static com.example.myapplication.entidades.Utilidades.*;
 
-public class CargarProducto extends AppCompatActivity {
+public class CargarProducto extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     ImageView imagen;
     Button btn_cargar;
     EditText nombre_producto, descripcion, precio, stock;
     Uri ruta;
+    String categoria;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cargar_producto);
         imagen = (ImageView) findViewById(R.id.imagenId);
-
+        // Spinner
+        final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.categoria_array, android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        final Spinner dropdown = (Spinner) findViewById(R.id.spinner_categoria);
+        dropdown.setAdapter(adapter);
+        dropdown.setOnItemSelectedListener(this);
+        // BD
         AdminSQLiteOpenHelper conn = new AdminSQLiteOpenHelper(this);
         final SQLiteDatabase bd = conn.open();
+        // Boton cargar
         btn_cargar = (Button) findViewById(R.id.btnCargarProduct);
         btn_cargar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,11 +64,11 @@ public class CargarProducto extends AppCompatActivity {
                 values.put(CAMPO_PRECIO, String.valueOf(precio.getText()));
                 values.put(CAMPO_IDTIENDA, 014);
                 values.put(CAMPO_STOCK, String.valueOf(stock.getText()));
+                values.put(CAMPO_CATEGORIA, String.valueOf(categoria));
                 values.put(CAMPO_IMAGEN, String.valueOf(ruta));
                 bd.insert(TABLA_PRODUCTO, CAMPO_ID, values);
                 Toast.makeText(getApplicationContext(),
                          "El producto se cargo con éxito.", Toast.LENGTH_SHORT).show();
-
             }
         });
     }
@@ -77,5 +91,15 @@ public class CargarProducto extends AppCompatActivity {
             imagen.setImageURI(path);
             imagen.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        categoria = (String) parent.getItemAtPosition(position);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

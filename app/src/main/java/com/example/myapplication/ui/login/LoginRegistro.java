@@ -5,8 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.example.myapplication.AdminSQLiteOpenHelper;
-import com.example.myapplication.MainActivity;
-import com.example.myapplication.dao.UsuarioDAO;
 import com.example.myapplication.entidades.Usuario;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,8 +22,8 @@ import java.util.regex.Pattern;
 
 public class LoginRegistro extends AppCompatActivity{
     Button btn_crear ;
-    Button btn_cancelar;
-    UsuarioDAO usuarioDAO;
+    private AdminSQLiteOpenHelper conn;
+    private SQLiteDatabase sql;
     EditText usuario;
     EditText email;
     EditText getEmail;
@@ -36,7 +34,7 @@ public class LoginRegistro extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_registro);
         btn_crear=(Button)findViewById(R.id.btn_crear_cuenta);
-        btn_cancelar = (Button) findViewById(R.id.btn_cancelar);
+        btn_crear.setOnClickListener(crearUsuarioClick);
 
         btn_crear.setOnClickListener(crearUsuarioClick);
         btn_cancelar.setOnClickListener(cancelarUsuarioClick);
@@ -52,34 +50,30 @@ public class LoginRegistro extends AppCompatActivity{
         public void onClick(View view) {
             Intent intent;
             String edit_clave_dos = clave_dos.getText().toString();
-            Usuario u = new Usuario();
-            u.setUsuario(usuario.getText().toString());
-            u.setEmail(email.getText().toString());
-            u.setClave(clave.getText().toString());
-            if(validaDatos(u,edit_clave_dos)) {
+            String rol = "comprador";
+            if(!edit_clave.equals(edit_clave_dos)){
+                Toast.makeText(getApplicationContext(),"Claves Erroneas",Toast.LENGTH_SHORT).show();
+            }else {
+                Usuario u = new Usuario();
+                u.setUsuario(edit_usuario);
+                u.setEmail(edit_email);
+                u.setClave(edit_clave);
+                u.setRol(rol);
                 try {
-                    usuarioDAO.open();
-                    if (usuarioDAO.crearUsuario(u)) {
+                    sql = conn.open();
+                    if (crearUsuario(u)) {
                         Toast.makeText(getApplicationContext(), "Usuario creado Exitosamente!", Toast.LENGTH_LONG).show();
-                        Bundle bundle = new Bundle();
-                        bundle.putString("usuario",u.getUsuario());
-                        bundle.putString("clave",u.getClave());
-                        intent = new Intent(LoginRegistro.this,MainActivity.class);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
-                        finish();
                     } else {
                         Toast.makeText(getApplicationContext(), "El nombre de usuario ya existe!", Toast.LENGTH_LONG).show();
                     }
                     limpiarDatos();
-                }
-                catch (Exception c){
+                }catch (Exception c){
                     c.printStackTrace();
-                    Toast.makeText(getApplicationContext(),"Ocurrio un error.",Toast.LENGTH_SHORT).show();
                 }
                 finally{
-                    usuarioDAO.close();
+                    sql.close();
                 }
+
             }
         }
     };
@@ -100,28 +94,17 @@ public class LoginRegistro extends AppCompatActivity{
         clave_dos.setText("");
 
     }
-
-    public void limpiarClaves(){
-        clave.setText("");
-        clave_dos.setText("");
-    }
-
-    public boolean validaDatos(Usuario u, String claveDos){
-        boolean ok=true;
-        if(u.getClave().isEmpty() && u.getUsuario().isEmpty() && u.getEmail().isEmpty() && claveDos.isEmpty()){
-            Toast.makeText(getApplicationContext(),"Todos los datos son obligatorios.",Toast.LENGTH_SHORT).show();
-            limpiarDatos();
-            ok=false;
-        }
-        else if(!u.getClave().equals(claveDos)){
-            Toast.makeText(getApplicationContext(),"Las claves no coinciden.",Toast.LENGTH_SHORT).show();
-            limpiarClaves();
-            ok=false;
-        }
-        else if(u.getClave().length() < 7){
-            Toast.makeText(getApplicationContext(),"Las clave debe contener almenos 8 dígitos.",Toast.LENGTH_SHORT).show();
-            limpiarClaves();
-            ok=false;
+    public boolean crearUsuario(Usuario us){
+        Usuario usuario=null;//buscarUsuario(us.getUsuario());
+        if(usuario == null) {
+            ContentValues values = new ContentValues();
+            values.put("usuario", us.getUsuario());
+            values.put("email", us.getEmail());
+            values.put("clave", us.getClave());
+            //values.put("rol", us.getRol());
+            Long registros=sql.insert("usuario",null,values);
+            boolean ok=registros > 0;
+            return ok;
         }
         else if(u.getClave().contains(u.getUsuario())){
             Toast.makeText(getApplicationContext(),"La clave no debe contener el nombre de usuario",Toast.LENGTH_SHORT).show();
@@ -143,16 +126,29 @@ public class LoginRegistro extends AppCompatActivity{
 
     }
 
-    public boolean validarEmail(String email){
-        boolean ok = true;
-        // Patrón para validar el email
-        Pattern pattern = Pattern
-                .compile("([a-z0-9]+(\\.?[a-z0-9])*)+@(([a-z]+)\\.([a-z]+))+");
+    public Usuario buscarUsuario(String nombreUsuario){
+        String query = "SELECT id,usuario,nombre,apellido,email,localidad" +
+                ",direccion,latitud,longitud,activo,rol FROM "+Utilidades.TABLA_USUARIO
+                +" WHERE nombre='"+nombreUsuario+"'";
 
-        Matcher mather = pattern.matcher(email);
-
-        if (mather.find() != true) {
-            ok=false;
+        Cursor raw = sql.rawQuery(query,null);
+        String userName = raw.getString(6);
+        if(userName == ""){
+            return null;
+        }else{
+            Usuario u = new Usuario();
+            u.setId(raw.getInt(0));
+            u.setUsuario(raw.getString(1));
+            u.setNombre(raw.getString(2));
+            u.setApellido(raw.getString(3));
+            u.setEmail(raw.getString(4));
+            u.setLocalidad(raw.getString(5));
+            u.setDireccion(raw.getString(6));
+            u.setLatitud(Integer.parseInt(raw.getString(7)));
+            u.setLongitud(Integer.parseInt(raw.getString(8)));
+            u.setActivo(Integer.parseInt(raw.getString(9)));
+            u.setRol(raw.getString(10));
+            return u;
         }
         return ok;
     }

@@ -4,120 +4,130 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CargarProducto">
-    <LinearLayout
+    tools:context=".CargarProducto"
+    tools:visibility="visible">
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingBottom="16dp"
-        android:paddingTop="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/textView2"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingBottom="16dp"
-            android:text="@string/cargar_producto"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text= "@string/nombre_producto" />
-
-        <EditText
-            android:id="@+id/nombre_producto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Ej: bicicleta"
-            android:inputType="textPersonName"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/precio" />
-
-        <EditText
-            android:id="@+id/precio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Ej: 1400"
-            android:inputType="number"
-            android:textSize="14sp"/>
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/stock" />
-
-        <EditText
-            android:id="@+id/stock"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Ej: 1"
-            android:inputType="number"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/descripcion" />
-
-        <EditText
-            android:id="@+id/descripcion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="Ej: Bicicleta roja, rodado 27"
-            android:inputType="textMultiLine"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/fotos" />
-
-        <ImageView
-            android:id="@+id/imagenId"
-            android:layout_width="263dp"
-            android:layout_height="143dp"
-            android:gravity="center"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/btnCargarImg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="#4c2882"
-            android:onClick="onclick"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
             android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:text="@string/select_img" />
-        <Button
-            android:id="@+id/btnCargarProduct"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="#4c2882"
-            android:onClick="onclick"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:text="@string/btn_cargarproduct" />
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="16dp"
+                android:text="@string/cargar_producto"
+                android:textSize="18sp" />
 
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nombre_producto" />
+
+            <EditText
+                android:id="@+id/nombre_producto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ej: bicicleta"
+                android:inputType="textPersonName"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/precio" />
+
+            <EditText
+                android:id="@+id/precio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ej: 1400"
+                android:inputType="number"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/stock" />
+
+            <EditText
+                android:id="@+id/stock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ej: 1"
+                android:inputType="number"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/descripcion" />
+
+            <EditText
+                android:id="@+id/descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Ej: Bicicleta roja, rodado 27"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical"
+                android:singleLine="false"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fotos" />
+
+            <ImageView
+                android:id="@+id/imagenId"
+                android:layout_width="match_parent"
+                android:layout_height="165dp"
+                android:gravity="center"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnCargarImg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#FD5B01"
+                android:onClick="onclick"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="@string/select_img" />
+
+            <Button
+                android:id="@+id/btnCargarProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#FD5B01"
+                android:onClick="onclick"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="@string/btn_cargarproduct" />
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

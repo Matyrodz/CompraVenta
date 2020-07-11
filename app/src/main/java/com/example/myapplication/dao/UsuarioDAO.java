@@ -76,6 +76,27 @@ public class UsuarioDAO {
         return u;
     }
 
+    public boolean actualizarUsuario(Usuario u){
+        ContentValues values = new ContentValues();
+        values.put("nombre", u.getNombre());
+        values.put("apellido", u.getApellido());
+        values.put("clave", u.getClave());
+        values.put("email", u.getEmail());
+        values.put("localidad", u.getLocalidad());
+        values.put("direccion", u.getDireccion());
+        values.put("telefono", u.getTelefono());
+        return sql.update("usuario",values,"usuario='"+u.getUsuario()+"'",null) > 0;
+
+    }
+
+    /**Es un borrado logico*/
+    public boolean deleteUsuario(Usuario u){
+        ContentValues values = new ContentValues();
+        values.put("activo",u.getActivo());
+        return sql.update("usuario",values,"usuario='"+u.getUsuario()+"'",null) > 0;
+
+    }
+
     public void open(){
         this.sql = this.conn.open();
     }

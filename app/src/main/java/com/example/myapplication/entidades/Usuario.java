@@ -21,6 +21,16 @@ public class Usuario {
         this.localidad = localidad;
     }
 
+    public boolean isNull(){
+        if(this.id == null && this.usuario == null && this.nombre == null && this.apellido == null
+        && this .email == null && this.clave == null && this.localidad == null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     public Integer getId() {
         return id;
     }

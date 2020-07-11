@@ -39,8 +39,12 @@
     <string name="usuario">Usuario</string>
     <string name="password">Password</string>
     <string name="password_dos">Repetir Password</string>
+    <string name="guardar_usuario">Guardar Usuario</string>
+    <string name="email">Email</string>
     <string name="btn_iniciar_sesion">Iniciar Sesion</string>
     <string name="btn_registrarse">Registrarse</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="btn_crear_cuenta">Crear Cuenta</string>
 
     <!-- Layout de cargar productos -->
     <string name="cargar_producto">Cargar producto</string>

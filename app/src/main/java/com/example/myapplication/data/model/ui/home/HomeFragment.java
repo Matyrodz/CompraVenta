@@ -2,11 +2,14 @@ package com.example.myapplication.data.model.ui.home;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,6 +25,7 @@ import com.example.myapplication.entidades.Producto;
 import com.example.myapplication.entidades.Utilidades;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
@@ -46,10 +50,14 @@ public class HomeFragment extends Fragment {
             }
         });
         conn = new AdminSQLiteOpenHelper(root.getContext());
+        conn.open();
         ListViewProductos = (ListView) root.findViewById(R.id.ListViewProduct);
         consultarListaProductos();
-        ArrayAdapter adaptador = new ArrayAdapter(root.getContext(),android.R.layout.simple_list_item_1,ListaInformacion);
-        ListViewProductos.setAdapter(adaptador);
+        if(ListaInformacion != null) {
+            ArrayAdapter adaptador = new ArrayAdapter(root.getContext(), android.R.layout.simple_list_item_1, ListaInformacion);
+            ListViewProductos.setAdapter(adaptador);
+        }
+        conn.close();
         return root;
     }
     private void consultarListaProductos() {
@@ -57,27 +65,25 @@ public class HomeFragment extends Fragment {
         Producto producto = null;
         ListaProductos = new ArrayList<Producto>();
         Cursor c = db.rawQuery("SELECT * FROM "+ Utilidades.TABLA_PRODUCTO, null);
-        if (c != null) {
+        if (c.getCount() != 0){
             c.moveToFirst();
             do {
                 producto = new Producto();
-                //Asignamos el valor en nuestras variables para usarlos en lo que necesitemos
                 producto.setNombre(c.getString(c.getColumnIndex("nombre")));
                 producto.setPrecio(c.getFloat(c.getColumnIndex("precio")));
                 producto.setDescripcion(c.getString(c.getColumnIndex("descripcion")));
                 producto.setImagen(c.getString(c.getColumnIndex("imagen")));
                 ListaProductos.add(producto);
             } while (c.moveToNext());
+            c.close();
+            obtenerLista();
         }
-        c.close();
-        obtenerLista();
     }
 
     private void obtenerLista() {
         ListaInformacion = new ArrayList<String>();
-        for (int i = 0; i<ListaProductos.size(); i++){
-            ListaInformacion.add(ListaProductos.get(i).getNombre()+" - "+ListaProductos.get(i).getDescripcion() + " - "+ ListaProductos.get(i).getPrecio()+" - "+ListaProductos.get(i).getImagen());
+        for (int i = 0; i < ListaProductos.size(); i++) {
+            ListaInformacion.add(ListaProductos.get(i).getNombre() + " - " + ListaProductos.get(i).getDescripcion() + " - " + ListaProductos.get(i).getPrecio() + " - " + ListaProductos.get(i).getDescripcion());
         }
-
     }
 }

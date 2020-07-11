@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.example.myapplication.AdminSQLiteOpenHelper;
-import com.example.myapplication.dao.UsuarioDAO;
 import com.example.myapplication.entidades.Usuario;
 import com.example.myapplication.entidades.Utilidades;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,7 +25,6 @@ import java.sql.SQLData;
 
 public class LoginRegistro extends AppCompatActivity {
     Button btn_crear ;
-    UsuarioDAO usuarioDAO;
     private AdminSQLiteOpenHelper conn;
     private SQLiteDatabase sql;
     EditText usuario;
@@ -39,7 +37,6 @@ public class LoginRegistro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_registro);
         btn_crear=(Button)findViewById(R.id.btn_crear_cuenta);
-        usuarioDAO = new UsuarioDAO();
         btn_crear.setOnClickListener(crearUsuarioClick);
 
         usuario =(EditText) findViewById(R.id.nombre_usuario);
@@ -59,22 +56,27 @@ public class LoginRegistro extends AppCompatActivity {
             String rol = "comprador";
             if(!edit_clave.equals(edit_clave_dos)){
                 Toast.makeText(getApplicationContext(),"Claves Erroneas",Toast.LENGTH_SHORT).show();
-                limpiarDatos();
             }else {
                 Usuario u = new Usuario();
                 u.setUsuario(edit_usuario);
                 u.setEmail(edit_email);
                 u.setClave(edit_clave);
                 u.setRol(rol);
-                sql = conn.open();
-                if(crearUsuario(u)){
-                    Toast.makeText(getApplicationContext(),"Usuario creado Exitosamente!",Toast.LENGTH_LONG).show();
+                try {
+                    sql = conn.open();
+                    if (crearUsuario(u)) {
+                        Toast.makeText(getApplicationContext(), "Usuario creado Exitosamente!", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "El nombre de usuario ya existe!", Toast.LENGTH_LONG).show();
+                    }
+                    limpiarDatos();
+                }catch (Exception c){
+                    c.printStackTrace();
                 }
-                else{
-                    Toast.makeText(getApplicationContext(),"El nombre de usuario ya existe!",Toast.LENGTH_LONG).show();
+                finally{
+                    sql.close();
                 }
-                limpiarDatos();
-                sql.close();;
+
             }
         }
     };
@@ -87,15 +89,16 @@ public class LoginRegistro extends AppCompatActivity {
 
     }
     public boolean crearUsuario(Usuario us){
-        Usuario usuario=buscarUsuario(us.getNombre());
+        Usuario usuario=null;//buscarUsuario(us.getUsuario());
         if(usuario == null) {
             ContentValues values = new ContentValues();
-            values.put(Utilidades.CAMPO_USUARIO, us.getUsuario());
-            values.put(Utilidades.CAMPO_EMAIL, us.getEmail());
-            values.put(Utilidades.CAMPO_CLAVE, us.getClave());
-            values.put(Utilidades.CAMPO_ROL, us.getRol());
-            return sql.insert(Utilidades.TABLA_USUARIO,null,values) > 0;
-
+            values.put("usuario", us.getUsuario());
+            values.put("email", us.getEmail());
+            values.put("clave", us.getClave());
+            //values.put("rol", us.getRol());
+            Long registros=sql.insert("usuario",null,values);
+            boolean ok=registros > 0;
+            return ok;
         }
         else{
             return false;
@@ -105,11 +108,12 @@ public class LoginRegistro extends AppCompatActivity {
 
     public Usuario buscarUsuario(String nombreUsuario){
         String query = "SELECT id,usuario,nombre,apellido,email,localidad" +
-                ",direccion,latitud,longitud,activo,rol FROM"+Utilidades.TABLA_USUARIO
-                +"WHERE (nombre='"+nombreUsuario+"')";
+                ",direccion,latitud,longitud,activo,rol FROM "+Utilidades.TABLA_USUARIO
+                +" WHERE nombre='"+nombreUsuario+"'";
 
         Cursor raw = sql.rawQuery(query,null);
-        if(raw.isNull(0)){
+        String userName = raw.getString(6);
+        if(userName == ""){
             return null;
         }else{
             Usuario u = new Usuario();

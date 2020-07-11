@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingBottom="16dp"
-        android:text="Opciones"
+        android:text="@string/opciones"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
-        android:text="Nombre del producto"
+        android:text="@string/idioma"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -41,7 +41,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="#4c2882"
-        android:onClick="cambiarIdioma"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
         android:text="@string/btnAcept"

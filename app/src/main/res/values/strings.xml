@@ -40,6 +40,7 @@
 
     <!--Strings del menú opciones -->
     <string name="btnAcept">Aceptar</string>
+    <string name="idioma">Idioma</string>
 
     <!--Strings de activities básicas -->
     <string name="title_activity_login" translatable="false">LoginActivity</string>
@@ -64,6 +65,6 @@
     <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
     <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings" translatable="false">Settings</string>
-    <string name="hello_blank_fragment">Hello world</string>
+    <string name="hello_blank_fragment" translatable="false">Hello world</string>
 
 </resources>

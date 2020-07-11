@@ -18,8 +18,12 @@
     <string name="usuario">Nome do usuário</string>
     <string name="password">Senha</string>
     <string name="password_dos">Repita a senha</string>
+    <string name="guardar_usuario">Salvar usuário</string>
+    <string name="email">O Email</string>
     <string name="btn_iniciar_sesion">Conecte-se</string>
     <string name="btn_registrarse">Registro</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="btn_crear_cuenta">Criar uma conta</string>
 
     <!--Strings del registro de usuarios -->
     <string name="cargar_producto">Carregar produto</string>
@@ -37,4 +41,5 @@
 
     <!--Strings del menú opciones -->
     <string name="btnAcept">Aceitar</string>
+    <string name="idioma">Língua</string>
 </resources>

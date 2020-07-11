@@ -25,7 +25,7 @@
             app:srcCompat="@drawable/login" />
 
         <EditText
-            android:id="@+id/id_nombre_usuario"
+            android:id="@+id/edit_usuario_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -41,7 +41,7 @@
             android:backgroundTint="@color/colorPrimary"/>
 
         <EditText
-            android:id="@+id/id_password1"
+            android:id="@+id/edit_password_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -54,33 +54,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/id_nombre_usuario"
+            app:layout_constraintTop_toBottomOf="@+id/edit_usuario_login"
             android:backgroundTint="@color/colorPrimary"/>
 
-        <Spinner
-            android:id="@+id/id_estado"
+        <CheckBox
+            android:id="@+id/checkbox_guardar_usuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:text="@string/guardar_usuario"
+            android:checked="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/id_password1" />
-
-        <CheckedTextView
-            android:id="@+id/id_recuperar_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
-            android:text="¿Olvidaste tu contraseña?"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/id_estado" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_password_login"/>
 
         <Button
             android:id="@+id/btn_inicio_sesion"
@@ -92,7 +82,7 @@
             android:text="@string/btn_iniciar_sesion"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/id_recuperar_password"
+            app:layout_constraintTop_toBottomOf="@+id/checkbox_guardar_usuario"
             android:background="@drawable/button_rounded"/>
 
         <Button
@@ -123,6 +113,7 @@
             app:layout_constraintStart_toStartOf="@+id/password"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.3" />
+
     </LinearLayout>
 
 

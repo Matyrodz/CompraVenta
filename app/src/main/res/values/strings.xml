@@ -17,8 +17,12 @@
     <string name="usuario">Usuario</string>
     <string name="password">Contraseña</string>
     <string name="password_dos">Repetir Contraseña</string>
+    <string name="guardar_usuario">Guardar Usuario</string>
+    <string name="email">Email</string>
     <string name="btn_iniciar_sesion">Iniciar Sesion</string>
     <string name="btn_registrarse">Registrarse</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="btn_crear_cuenta">Crear Cuenta</string>
 
     <!--Strings del registro de usuarios -->
     <string name="cargar_producto">Cargar Producto</string>
@@ -60,4 +64,6 @@
     <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
     <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings" translatable="false">Settings</string>
+    <string name="hello_blank_fragment">Hello world</string>
+
 </resources>

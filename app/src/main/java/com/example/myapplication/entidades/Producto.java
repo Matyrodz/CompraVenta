@@ -2,10 +2,17 @@ package com.example.myapplication.entidades;
 
 public class Producto {
     private Integer _id,id_tienda,stock;
-    private String nombre,descripcion,imagen;
-    private float precio;
+    private String nombre,descripcion,imagen, categoria, precio;
 
     public Producto(){}
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
 
     public String getImagen() {
         return imagen;
@@ -55,11 +62,11 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public float getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 }

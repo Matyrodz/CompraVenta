@@ -46,12 +46,16 @@
     <string name="btn_cancelar">Cancelar</string>
     <string name="btn_crear_cuenta">Crear Cuenta</string>
 
+    <!-- Layout de Home -->
+    <string name="box_mayorprecio">Mayor Precio</string>
+    <string name="box_menorprecio">Menor Precio</string>
     <!-- Layout de cargar productos -->
     <string name="cargar_producto">Cargar producto</string>
     <string name="nombre_producto">Nombre del producto</string>
     <string name="precio">Precio</string>
     <string name="stock">Cantidad disponible</string>
     <string name="descripcion">Descripcion</string>
+    <string name="categoria">Categoria</string>
     <string name="fotos">Fotos</string>
     <string name="select_img">Selecciona la imagen</string>
     <string name="btn_cargarproduct">Cargar producto</string>

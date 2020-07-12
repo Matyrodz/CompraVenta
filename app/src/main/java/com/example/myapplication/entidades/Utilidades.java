@@ -33,10 +33,11 @@ public class Utilidades {
     public static final String CAMPO_DESCRIPCION = "descripcion";
     public static final String CAMPO_IDTIENDA="id_tienda";
     public static final String CAMPO_PRECIO ="precio";
+    public static final String CAMPO_CATEGORIA = "categoria";
     public static final String CAMPO_IMAGEN = "imagen";
     // TABLA PRODUCTO
     public static final String CREAR_TABLA_PRODUCTO = "CREATE TABLE "+ TABLA_PRODUCTO+" ("+CAMPO_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+CAMPO_IDTIENDA+ " INTEGER NOT NULL, "+
-            CAMPO_STOCK+ " INTEGER NOT NULL, "+CAMPO_PRECIO+ " REAL NOT NULL, "+CAMPO_NOMBRE+ " TEXT NOT NULL, "+CAMPO_DESCRIPCION+ " TEXT, "+CAMPO_IMAGEN+ " TEXT NOT NULL)";
+            CAMPO_STOCK+ " INTEGER NOT NULL, "+CAMPO_PRECIO+ " REAL NOT NULL, "+CAMPO_NOMBRE+ " TEXT NOT NULL, "+CAMPO_DESCRIPCION+ " TEXT, "+CAMPO_CATEGORIA+" TEXT NOT NULL, "+CAMPO_IMAGEN+ " TEXT NOT NULL)";
 
     // Constantes de venta
     public static final String TABLA_VENTA = "venta";

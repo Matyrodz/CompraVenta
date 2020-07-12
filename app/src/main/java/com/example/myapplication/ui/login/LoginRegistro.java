@@ -5,6 +5,10 @@ import android.os.Bundle;
 
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.dao.UsuarioDAO;
+<<<<<<< HEAD
+=======
+
+>>>>>>> e1533b32a563521d53b6b9af7c4c7051cfffc042
 import com.example.myapplication.entidades.Usuario;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,7 +39,6 @@ public class LoginRegistro extends AppCompatActivity{
         setContentView(R.layout.activity_login_registro);
         btn_crear=(Button)findViewById(R.id.btn_crear_cuenta);
         btn_cancelar = (Button) findViewById(R.id.btn_cancelar);
-
 
         btn_crear.setOnClickListener(crearUsuarioClick);
         btn_cancelar.setOnClickListener(cancelarUsuarioClick);

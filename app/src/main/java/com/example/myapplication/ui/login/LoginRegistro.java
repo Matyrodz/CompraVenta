@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.dao.UsuarioDAO;
-
 import com.example.myapplication.entidades.Usuario;
 
 import androidx.appcompat.app.AppCompatActivity;

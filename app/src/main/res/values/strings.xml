@@ -34,6 +34,7 @@
     <string name="select_img">Seleccione una imagen</string>
     <string name="btn_cargarproduct">Cargar</string>
     <string name="tomar_foto">Tomar foto</string>
+    <string name="categoria">Categoría</string>
 
     <!--Strings del menú de 3 puntos -->
     <string name="opciones">Opciones</string>
@@ -42,6 +43,14 @@
     <!--Strings del menú opciones -->
     <string name="btnAcept">Aceptar</string>
     <string name="idioma">Idioma</string>
+
+    <!-- Layout de Home -->
+    <string name="box_mayorprecio">Mayor Precio</string>
+    <string name="box_menorprecio">Menor Precio</string>
+
+    <!-- Layout de MuestraProductos -->
+    <string name="comprar">Comprar</string>
+    <string name="ubicacion">Ver ubicación</string>
 
     <!--Strings de activities básicas -->
     <string name="title_activity_login" translatable="false">LoginActivity</string>
@@ -67,21 +76,5 @@
     <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings" translatable="false">Settings</string>
     <string name="hello_blank_fragment" translatable="false">Hello world</string>
-    <!-- Layout de Home -->
-    <string name="box_mayorprecio">Mayor Precio</string>
-    <string name="box_menorprecio">Menor Precio</string>
-    <!-- Layout de cargar productos -->
-    <string name="cargar_producto">Cargar producto</string>
-    <string name="nombre_producto">Nombre del producto</string>
-    <string name="precio">Precio</string>
-    <string name="stock">Cantidad disponible</string>
-    <string name="descripcion">Descripcion</string>
-    <string name="categoria">Categoria</string>
-    <string name="fotos">Fotos</string>
-    <string name="select_img">Selecciona la imagen</string>
-    <string name="btn_cargarproduct">Cargar producto</string>
-    <!-- Layout de MuestraProductos -->
-    <string name="comprar">Comprar</string>
-    <string name="ubicacion">Ver ubicación</string>
 
 </resources>

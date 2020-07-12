@@ -35,6 +35,7 @@
     <string name="select_img">Add new images</string>
     <string name="btn_cargarproduct">Add product</string>
     <string name="tomar_foto">Take Photo</string>
+    <string name="categoria">Category</string>
 
     <!--Strings del menú de 3 puntos -->
     <string name="opciones">Options</string>
@@ -43,4 +44,13 @@
     <!--Strings del menú opciones -->
     <string name="btnAcept">Accept</string>
     <string name="idioma">Language</string>
+
+    <!-- Layout de Home -->
+    <string name="box_mayorprecio">Higher Price</string>
+    <string name="box_menorprecio">Minor Price</string>
+
+    <!-- Layout de MuestraProductos -->
+    <string name="comprar">Buy</string>
+    <string name="ubicacion">Ubication</string>
+
 </resources>

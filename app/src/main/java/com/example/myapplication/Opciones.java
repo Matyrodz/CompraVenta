@@ -44,16 +44,7 @@ public class Opciones extends AppCompatActivity {
         });
 
 
-    }/*
-    public static Context onAttach(Context context) {
-        String lang = getPersistedData(context, Locale.getDefault().getLanguage());
-        return setLocale(context, lang);
     }
-
-    public static Context onAttach(Context context, String defaultLanguage) {
-        String lang = getPersistedData(context, defaultLanguage);
-        return setLocale(context, lang);
-    }*/
 
     public void cambiarIdioma(){
         String val = spinner.getSelectedItem().toString();

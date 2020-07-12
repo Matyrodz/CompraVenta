@@ -27,7 +27,7 @@ public class CargarProducto extends AppCompatActivity {
     ImageView imagen;
     Button btn_cargar;
     EditText nombre_producto, descripcion, precio, stock;
-    Uri path;
+    Uri ruta;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +41,16 @@ public class CargarProducto extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 nombre_producto = (EditText) findViewById(R.id.nombre_producto);
+                descripcion = (EditText) findViewById(R.id.descripcion);
+                precio = (EditText) findViewById(R.id.precio);
+                stock = (EditText) findViewById(R.id.stock);
                 ContentValues values = new ContentValues();
                 values.put(CAMPO_NOMBRE, String.valueOf(nombre_producto.getText()));
-                values.put(CAMPO_DESCRIPCION, /*String.valueOf(descripcion.getText())*/"roja");
-                values.put(CAMPO_PRECIO, /*Float.parseFloat(String.valueOf(precio.getText()))*/14);
+                values.put(CAMPO_DESCRIPCION, String.valueOf(descripcion.getText()));
+                values.put(CAMPO_PRECIO, String.valueOf(precio.getText()));
                 values.put(CAMPO_IDTIENDA, 014);
-                values.put(CAMPO_STOCK, /*Integer.parseInt(String.valueOf(stock.getText()))*/2);
-                values.put(CAMPO_IMAGEN, /*String.valueOf(path.getPath()*/"imagen/pieza.png");
+                values.put(CAMPO_STOCK, String.valueOf(stock.getText()));
+                values.put(CAMPO_IMAGEN, String.valueOf(ruta));
                 bd.insert(TABLA_PRODUCTO, CAMPO_ID, values);
                 Toast.makeText(getApplicationContext(),
                          "El producto se cargo con éxito.", Toast.LENGTH_SHORT).show();
@@ -69,7 +72,8 @@ public class CargarProducto extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode==RESULT_OK){
-            path = data.getData();
+            ruta = data.getData();
+            Uri path = data.getData();
             imagen.setImageURI(path);
             imagen.setVisibility(View.VISIBLE);
         }

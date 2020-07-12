@@ -1,10 +1,8 @@
 package com.example.myapplication.ui.login;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
-import com.example.myapplication.AdminSQLiteOpenHelper;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.dao.UsuarioDAO;
 import com.example.myapplication.entidades.Usuario;
@@ -37,6 +35,7 @@ public class LoginRegistro extends AppCompatActivity{
         setContentView(R.layout.activity_login_registro);
         btn_crear=(Button)findViewById(R.id.btn_crear_cuenta);
         btn_cancelar = (Button) findViewById(R.id.btn_cancelar);
+
 
         btn_crear.setOnClickListener(crearUsuarioClick);
         btn_cancelar.setOnClickListener(cancelarUsuarioClick);

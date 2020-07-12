@@ -1,5 +1,6 @@
 package com.example.myapplication.data.model.ui.home;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory;
@@ -25,6 +26,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.AdminSQLiteOpenHelper;
 import com.example.myapplication.R;
+import com.example.myapplication.data.model.MuestraProducto;
 import com.example.myapplication.entidades.Producto;
 import com.example.myapplication.entidades.Utilidades;
 
@@ -59,6 +61,9 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemSelected
                 }
             });
         }
+   //     if(ListViewProductos != null) {
+
+ //       }
         // Spinner
         final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(root.getContext(),
                 R.array.filtro_categoria, android.R.layout.simple_spinner_dropdown_item);
@@ -120,6 +125,19 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemSelected
                 }
             }
         });
+        ListViewProductos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String item = (String) parent.getItemAtPosition(position);
+                String[] producto = item.split("-");
+                Intent intent = new Intent(HomeFragment.this.getContext(), MuestraProducto.class);
+                intent.putExtra("nombre", producto[0]);
+                intent.putExtra("categoria", producto[1]);
+                intent.putExtra("precio", producto[2]);
+                intent.putExtra("descripcion", producto[3]);
+                startActivity(intent);
+            }
+        });
         conn.close();
         return root;
     }
@@ -133,9 +151,9 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemSelected
             do {
                 producto = new Producto();
                 producto.setNombre(c.getString(c.getColumnIndex("nombre")));
-                producto.setPrecio(c.getFloat(c.getColumnIndex("precio")));
+                producto.setPrecio(c.getString(c.getColumnIndex("precio")));
                 producto.setDescripcion(c.getString(c.getColumnIndex("descripcion")));
-                producto.setImagen(c.getString(c.getColumnIndex("imagen")));
+                producto.setCategoria(c.getString(c.getColumnIndex("categoria")));
                 ListaProductos.add(producto);
             } while (c.moveToNext());
             c.close();
@@ -146,7 +164,7 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemSelected
     private void obtenerLista() {
         ListaInformacion = new ArrayList<String>();
         for (int i = 0; i < ListaProductos.size(); i++) {
-            ListaInformacion.add(ListaProductos.get(i).getNombre() + " - " + ListaProductos.get(i).getDescripcion() + " - " + ListaProductos.get(i).getPrecio() + "$ - " + ListaProductos.get(i).getDescripcion());
+            ListaInformacion.add(ListaProductos.get(i).getNombre() + " - " + ListaProductos.get(i).getCategoria() + " - " + ListaProductos.get(i).getPrecio() + "$ - " + ListaProductos.get(i).getDescripcion());
         }
     }
 

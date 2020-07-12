@@ -59,6 +59,9 @@
     <string name="fotos">Fotos</string>
     <string name="select_img">Selecciona la imagen</string>
     <string name="btn_cargarproduct">Cargar producto</string>
+    <!-- Layout de MuestraProductos -->
+    <string name="comprar">Comprar</string>
+    <string name="ubicacion">Ver ubicación</string>
 
     <string name="hello_blank_fragment">Hello world</string>
 

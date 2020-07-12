@@ -59,6 +59,7 @@ public class UsuarioDAO {
         }
         return u;
     }
+
     public Usuario buscarUsuario(String nombreUsuario, String clave){
         String query = "SELECT * FROM "+Utilidades.TABLA_USUARIO
                 +" WHERE usuario='"+nombreUsuario+"' and clave='"+clave

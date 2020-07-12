@@ -6,11 +6,13 @@
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
-        android:title="Opciones"
-        app:showAsAction="never" />
+        android:title="@string/opciones"
+        app:showAsAction="never"
+        tools:ignore="HardcodedText" />
     <item
         android:id="@+id/action_logout"
         android:orderInCategory="100"
-        android:title="Cerrar sesión"
-        app:showAsAction="never" />
+        android:title="@string/cerrar_sesion"
+        app:showAsAction="never"
+        tools:ignore="HardcodedText" />
 </menu>

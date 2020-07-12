@@ -20,13 +20,13 @@
             android:textSize="20sp"
             android:backgroundTint="@color/cardview_dark_background"/>
         <EditText
-        android:id="@+id/edit_nombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:hint="@string/nombre"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"/>
+            android:id="@+id/edit_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:hint="@string/nombre"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"/>
         <EditText
             android:id="@+id/edit_apellido"
             android:layout_width="match_parent"

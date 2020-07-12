@@ -58,7 +58,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="24dp"
         android:hint="@string/contrase_a"
-        android:imeActionLabel="@string/action_sign_in_short"
+        android:imeActionLabel="@string/contrase_a"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"

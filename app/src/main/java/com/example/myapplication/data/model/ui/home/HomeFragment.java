@@ -61,9 +61,6 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemSelected
                 }
             });
         }
-   //     if(ListViewProductos != null) {
-
- //       }
         // Spinner
         final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(root.getContext(),
                 R.array.filtro_categoria, android.R.layout.simple_spinner_dropdown_item);

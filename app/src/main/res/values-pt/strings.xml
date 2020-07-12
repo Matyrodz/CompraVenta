@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CompraVenta</string>
+    <string name="complete_los_siguientes_campos">Preencha os seguintes campos:</string>
+    <string name="nombre_de_usuario">Nome do usuário</string>
+    <string name="contrase_a">Senha</string>
+    <string name="iniciar_sesi_n">Conecte-se</string>
+    <string name="title_activity_menu_principal">Menu principal</string>
+
+    <!--Strings del Side bar-->
+    <string name="menu_home">Menú Principal</string>
+    <string name="menu_perfil">Perfil</string>
+    <string name="menu_publicaciones">Mis produtos</string>
+    <string name="menu_ventas">Minhas vendas</string>
+    <string name="menu_carrito">Carrinho</string>
+
+    <!--Strings del layout de sesion-->
+    <string name="usuario">Nome do usuário</string>
+    <string name="password">Senha</string>
+    <string name="password_dos">Repita a senha</string>
+    <string name="guardar_usuario">Salvar usuário</string>
+    <string name="email">O Email</string>
+    <string name="btn_iniciar_sesion">Conecte-se</string>
+    <string name="btn_registrarse">Registro</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="btn_crear_cuenta">Criar uma conta</string>
+    <string name="tomar_foto">Tomar foto</string>
+
+    <!--Strings del registro de usuarios -->
+    <string name="cargar_producto">Carregar produto</string>
+    <string name="nombre_producto">Nome</string>
+    <string name="precio">preço</string>
+    <string name="stock">Stock</string>
+    <string name="descripcion">Descrição</string>
+    <string name="fotos">Fotos</string>
+    <string name="select_img">Selecione uma imagem</string>
+    <string name="btn_cargarproduct">Carregar produto</string>
+    <string name="categoria">Categoria</string>
+
+    <!--Strings del menú de 3 puntos -->
+    <string name="opciones">Opções</string>
+    <string name="cerrar_sesion">Sair</string>
+
+    <!--Strings del menú opciones -->
+    <string name="btnAcept">Aceitar</string>
+    <string name="idioma">Língua</string>
+
+    <!-- Layout de Home -->
+    <string name="box_mayorprecio">Preço mais alto</string>
+    <string name="box_menorprecio">Preço mais baixo</string>
+
+    <!-- Layout de MuestraProductos -->
+    <string name="comprar">Comprar</string>
+    <string name="ubicacion">Ver localização</string>
+
+</resources>

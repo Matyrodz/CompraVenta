@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 import com.example.myapplication.AdminSQLiteOpenHelper;
@@ -13,6 +16,7 @@ import com.example.myapplication.CargarProducto;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.Opciones;
 import com.example.myapplication.R;
+import com.example.myapplication.ui.login.LoginRegistro;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -70,6 +74,20 @@ public class menu_principal extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_principal, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if(id == R.id.action_settings){
+            Intent intent = new Intent(menu_principal.this, Opciones.class);
+            startActivity(intent);
+        } else if ( id == R.id.action_logout){
+            Toast.makeText(this, "Salir", Toast.LENGTH_SHORT).show();
+            //Armar el log out acá
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

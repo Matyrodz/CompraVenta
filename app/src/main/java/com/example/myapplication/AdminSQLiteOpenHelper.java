@@ -42,7 +42,8 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
     public SQLiteDatabase open(){
-        return this.getWritableDatabase();
+        bd=this.getWritableDatabase();
+        return bd;
     }
     public void close(){
         bd.close();

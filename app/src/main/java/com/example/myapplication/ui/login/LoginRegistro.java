@@ -1,13 +1,18 @@
 package com.example.myapplication.ui.login;
 
-import android.content.Intent;
+import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.example.myapplication.AdminSQLiteOpenHelper;
 import com.example.myapplication.entidades.Usuario;
+import com.example.myapplication.entidades.Utilidades;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.widget.Button;
@@ -16,11 +21,9 @@ import android.widget.Toast;
 
 import com.example.myapplication.R;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.sql.SQLData;
 
-
-public class LoginRegistro extends AppCompatActivity{
+public class LoginRegistro extends AppCompatActivity {
     Button btn_crear ;
     private AdminSQLiteOpenHelper conn;
     private SQLiteDatabase sql;
@@ -36,19 +39,19 @@ public class LoginRegistro extends AppCompatActivity{
         btn_crear=(Button)findViewById(R.id.btn_crear_cuenta);
         btn_crear.setOnClickListener(crearUsuarioClick);
 
-        btn_crear.setOnClickListener(crearUsuarioClick);
-        btn_cancelar.setOnClickListener(cancelarUsuarioClick);
         usuario =(EditText) findViewById(R.id.nombre_usuario);
         email = (EditText)findViewById(R.id.email_usuario);
         clave =(EditText) findViewById(R.id.password_uno);
         clave_dos = (EditText)findViewById(R.id.password_dos);
-        usuarioDAO = new UsuarioDAO(getApplicationContext());
+        conn = new AdminSQLiteOpenHelper(getApplicationContext());
     }
 
     private final View.OnClickListener crearUsuarioClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent;
+            String edit_usuario = usuario.getText().toString();
+            String edit_email = email.getText().toString();
+            String edit_clave = clave.getText().toString();
             String edit_clave_dos = clave_dos.getText().toString();
             String rol = "comprador";
             if(!edit_clave.equals(edit_clave_dos)){
@@ -78,15 +81,6 @@ public class LoginRegistro extends AppCompatActivity{
         }
     };
 
-    private final View.OnClickListener cancelarUsuarioClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(LoginRegistro.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    };
-
     private void limpiarDatos(){
         usuario.setText("");
         email.setText("");
@@ -106,23 +100,9 @@ public class LoginRegistro extends AppCompatActivity{
             boolean ok=registros > 0;
             return ok;
         }
-        else if(u.getClave().contains(u.getUsuario())){
-            Toast.makeText(getApplicationContext(),"La clave no debe contener el nombre de usuario",Toast.LENGTH_SHORT).show();
-            limpiarClaves();
-            ok=false;
-
+        else{
+            return false;
         }
-        else if(u.getUsuario().length() < 3){
-            Toast.makeText(getApplicationContext(),"El usuario debe contener almenos 4 caracteres. ",Toast.LENGTH_SHORT).show();
-            this.usuario.setText("");
-            ok=false;
-        }
-        else if(!validarEmail(u.getEmail())){
-            Toast.makeText(getApplicationContext(),"El Email ingresado es invalido",Toast.LENGTH_SHORT).show();
-            this.email.setText("");
-            ok=false;
-        }
-        return ok;
 
     }
 
@@ -150,6 +130,5 @@ public class LoginRegistro extends AppCompatActivity{
             u.setRol(raw.getString(10));
             return u;
         }
-        return ok;
     }
 }

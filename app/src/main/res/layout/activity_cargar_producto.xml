@@ -111,18 +111,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="#FD5B01"
+                android:background="#4c2882"
                 android:onClick="onclick"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
                 android:text="@string/select_img" />
 
             <Button
+                android:id="@+id/btn_Tomar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#4c2882"
+                android:onClick="onclickTomar"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="@string/tomar_foto" />
+
+            <Button
                 android:id="@+id/btnCargarProduct"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="#FD5B01"
+                android:background="#4c2882"
                 android:onClick="onclick"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"

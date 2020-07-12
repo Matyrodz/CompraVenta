@@ -24,6 +24,7 @@
     <string name="btn_registrarse">Registro</string>
     <string name="btn_cancelar">Cancelar</string>
     <string name="btn_crear_cuenta">Criar uma conta</string>
+    <string name="tomar_foto">Tomar foto</string>
 
     <!--Strings del registro de usuarios -->
     <string name="cargar_producto">Carregar produto</string>

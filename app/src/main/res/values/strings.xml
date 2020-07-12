@@ -33,6 +33,7 @@
     <string name="fotos">Fotos</string>
     <string name="select_img">Seleccione una imagen</string>
     <string name="btn_cargarproduct">Cargar</string>
+    <string name="tomar_foto">Tomar foto</string>
 
     <!--Strings del menú de 3 puntos -->
     <string name="opciones">Opciones</string>

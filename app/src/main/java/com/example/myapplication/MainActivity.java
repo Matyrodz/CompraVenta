@@ -86,6 +86,9 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     intent = new Intent(MainActivity.this,menu_principal.class);
                     Toast.makeText(getApplicationContext(),"Bienvenido: "+usuario,Toast.LENGTH_LONG).show();
+                    Bundle b = new Bundle();
+                    b.putString("usuario",usuario);
+                    intent.putExtras(b);
                     startActivity(intent);
                 }
             }

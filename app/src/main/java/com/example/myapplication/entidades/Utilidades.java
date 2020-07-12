@@ -16,6 +16,7 @@ public class Utilidades {
     public static final String CAMPO_LONGITUD = "longitud";
     public static final String CAMPO_ROL = "rol";
     public static final String CAMPO_ACTIVO = "activo";
+    public static final String CAMPO_TELEFONO = "telefono";
     // TABLA Usuario
    /*  public static final String CREAR_TABLA_USUARIO= "CREATE TABLE "+"" +  TABLA_USUARIO+" ("+CAMPO_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+CAMPO_USUARIO+" TEXT NOT NULL, "+CAMPO_CLAVE+" TEXT NOT NULL, "+
             CAMPO_NOMBRE +" TEXT NOT NULL, "+ CAMPO_APELLIDO + " TEXT NOT NULL, "+CAMPO_DIRECCION + " TEXT NOT NULL, "+ CAMPO_LOCALIDAD + " TEXT NOT NULL, "+
@@ -25,7 +26,7 @@ public class Utilidades {
     // TABLA Usuario
     public static final String CREAR_TABLA_USUARIO= "CREATE TABLE " +  TABLA_USUARIO+" ("+CAMPO_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+CAMPO_USUARIO+" TEXT, "+CAMPO_NOMBRE + " TEXT, "+
             CAMPO_APELLIDO + " TEXT, "+CAMPO_DIRECCION + " TEXT, "+ CAMPO_LOCALIDAD + " TEXT, "+CAMPO_CLAVE+" TEXT ,"+ CAMPO_EMAIL + " TEXT, "+CAMPO_ROL + " TEXT, "+
-            CAMPO_LATITUD +" INTEGER, "+ CAMPO_LONGITUD+ " INTEGER, "+ CAMPO_ACTIVO + " INTEGER)";
+            CAMPO_LATITUD +" INTEGER, "+ CAMPO_LONGITUD+ " INTEGER, "+ CAMPO_TELEFONO+ " INTEGER, "+ CAMPO_ACTIVO + " INTEGER)";
 
     // Constantes de Producto
     public static final String TABLA_PRODUCTO = "producto";

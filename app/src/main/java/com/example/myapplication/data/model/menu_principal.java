@@ -32,7 +32,6 @@ import androidx.appcompat.widget.Toolbar;
 public class menu_principal extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    Button action_cerrar_sesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +73,6 @@ public class menu_principal extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_principal, menu);
-        action_cerrar_sesion = (Button) findViewById(R.id.action_logout);
 
         return true;
     }
@@ -86,30 +84,5 @@ public class menu_principal extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    private View.OnClickListener cerrarSesionClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
 
-            Intent intent = new Intent(menu_principal.this,MainActivity.class);
-            startActivity(intent);
-            finish();
-            /*AlertDialog.Builder builder = new AlertDialog.Builder(menu_principal.this);
-            builder.setTitle("Cerrar Sesión");
-            builder.setMessage("¿Estas seguro de cerrar la sesión?")
-                    .setPositiveButton("SI", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent intent = new Intent(menu_principal.this,MainActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                    })
-                    .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                        }
-                    });*/
-        }
-    };
 }

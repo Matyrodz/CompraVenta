@@ -5,10 +5,6 @@ import android.os.Bundle;
 
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.dao.UsuarioDAO;
-<<<<<<< HEAD
-=======
-
->>>>>>> e1533b32a563521d53b6b9af7c4c7051cfffc042
 import com.example.myapplication.entidades.Usuario;
 
 import androidx.appcompat.app.AppCompatActivity;

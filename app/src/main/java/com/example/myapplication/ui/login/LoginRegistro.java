@@ -1,12 +1,11 @@
 package com.example.myapplication.ui.login;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
-import com.example.myapplication.AdminSQLiteOpenHelper;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.dao.UsuarioDAO;
+
 import com.example.myapplication.entidades.Usuario;
 
 import androidx.appcompat.app.AppCompatActivity;

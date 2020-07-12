@@ -43,7 +43,6 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     }
     public SQLiteDatabase open(){
         return this.getWritableDatabase();
-
     }
     public void close(){
         bd.close();

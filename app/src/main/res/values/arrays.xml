@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categoria_array">
+        <item>Almacén</item>
+        <item>Bazar</item>
+        <item>Computacion</item>
+        <item>Electrodomésticos</item>
+        <item>Electrónica</item>
+        <item>Herramientas</item>
+        <item>Otros</item>
+    </string-array>
+    <string-array name="filtro_categoria">
+        <item>Almacén</item>
+        <item>Bazar</item>
+        <item>Computacion</item>
+        <item>Electrodomésticos</item>
+        <item>Electrónica</item>
+        <item>Herramientas</item>
+        <item>Otros</item>
+        <item>Todos</item>
+    </string-array>
+</resources>

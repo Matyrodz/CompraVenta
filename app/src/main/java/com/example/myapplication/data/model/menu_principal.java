@@ -89,7 +89,11 @@ public class menu_principal extends AppCompatActivity {
     private View.OnClickListener cerrarSesionClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(menu_principal.this);
+
+            Intent intent = new Intent(menu_principal.this,MainActivity.class);
+            startActivity(intent);
+            finish();
+            /*AlertDialog.Builder builder = new AlertDialog.Builder(menu_principal.this);
             builder.setTitle("Cerrar Sesión");
             builder.setMessage("¿Estas seguro de cerrar la sesión?")
                     .setPositiveButton("SI", new DialogInterface.OnClickListener() {
@@ -105,7 +109,7 @@ public class menu_principal extends AppCompatActivity {
                         public void onClick(DialogInterface dialogInterface, int i) {
 
                         }
-                    });
+                    });*/
         }
     };
 }

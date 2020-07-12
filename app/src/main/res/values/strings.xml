@@ -52,7 +52,6 @@
     <string name="comprar">Comprar</string>
     <string name="ubicacion">Ver ubicación</string>
     <string name="title_activity_ubicacion_producto">Map</string>
-    <string name="split">$</string>
 
     <!--Strings de activities básicas -->
     <string name="title_activity_login" translatable="false">LoginActivity</string>

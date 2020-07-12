@@ -2,9 +2,25 @@ package com.example.myapplication.entidades;
 
 public class Producto {
     private Integer _id,id_tienda,stock;
-    private String nombre,descripcion,imagen, categoria, precio;
+    private String nombre,descripcion,imagen, categoria, precio, latitud, longitud;
 
     public Producto(){}
+
+    public String getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(String latitud) {
+        this.latitud = latitud;
+    }
+
+    public String getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(String longitud) {
+        this.longitud = longitud;
+    }
 
     public String getCategoria() {
         return categoria;

@@ -2,10 +2,19 @@ package com.example.myapplication;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -20,17 +29,20 @@ import android.widget.Toast;
 
 import static com.example.myapplication.entidades.Utilidades.*;
 
-public class CargarProducto extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class CargarProducto extends AppCompatActivity implements AdapterView.OnItemSelectedListener, LocationListener {
     ImageView imagen;
     Button btn_cargar;
     EditText nombre_producto, descripcion, precio, stock;
     Uri ruta;
-    String categoria;
+    String categoria, lat, longi;
+    private LocationManager locManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cargar_producto);
         imagen = (ImageView) findViewById(R.id.imagenId);
+
         // Spinner
         final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.categoria_array, android.R.layout.simple_spinner_dropdown_item);
@@ -41,6 +53,8 @@ public class CargarProducto extends AppCompatActivity implements AdapterView.OnI
         // BD
         AdminSQLiteOpenHelper conn = new AdminSQLiteOpenHelper(this);
         final SQLiteDatabase bd = conn.open();
+        // Cargar ubicación
+        onLocationChanged(rastreoGPS());
         // Boton cargar
         btn_cargar = (Button) findViewById(R.id.btnCargarProduct);
         btn_cargar.setOnClickListener(new View.OnClickListener() {
@@ -58,9 +72,11 @@ public class CargarProducto extends AppCompatActivity implements AdapterView.OnI
                 values.put(CAMPO_STOCK, String.valueOf(stock.getText()));
                 values.put(CAMPO_CATEGORIA, String.valueOf(categoria));
                 values.put(CAMPO_IMAGEN, String.valueOf(ruta));
+                values.put(CAMPO_LATITUD, String.valueOf(lat));
+                values.put(CAMPO_LONGITUD, String.valueOf(longi));
                 bd.insert(TABLA_PRODUCTO, CAMPO_ID, values);
                 Toast.makeText(getApplicationContext(),
-                         "El producto se cargo con éxito.", Toast.LENGTH_SHORT).show();
+                        "El producto se cargo con éxito.", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -72,12 +88,12 @@ public class CargarProducto extends AppCompatActivity implements AdapterView.OnI
     private void cargarImagen() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/");
-        startActivityForResult(intent.createChooser(intent,"Seleccione la imagen"),10);
+        startActivityForResult(intent.createChooser(intent, "Seleccione la imagen"), 10);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode==RESULT_OK){
+        if (resultCode == RESULT_OK) {
             ruta = data.getData();
             Uri path = data.getData();
             imagen.setImageURI(path);
@@ -92,6 +108,38 @@ public class CargarProducto extends AppCompatActivity implements AdapterView.OnI
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    // Geolocalización
+    @SuppressLint("MissingPermission")
+    private Location rastreoGPS() {
+        locManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        Criteria criteria = new Criteria();
+        String bestProvider = String.valueOf(locManager.getBestProvider(criteria, true));
+        locManager.requestLocationUpdates(bestProvider,1000,0, this);
+        Location loc = locManager.getLastKnownLocation(bestProvider);
+        return loc;
+    }
+
+    @Override
+    public void onLocationChanged(Location loc) {
+        this.lat = String.valueOf(loc.getLatitude());
+        this.longi = String.valueOf(loc.getLongitude());
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
 
     }
 }

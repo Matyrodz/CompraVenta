@@ -71,7 +71,6 @@ public class menu_principal extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_principal, menu);
         return true;
     }
@@ -83,12 +82,13 @@ public class menu_principal extends AppCompatActivity {
             Intent intent = new Intent(menu_principal.this, Opciones.class);
             startActivity(intent);
         } else if ( id == R.id.action_logout){
-            Toast.makeText(this, "Salir", Toast.LENGTH_SHORT).show();
-            //Armar el log out acá
+            Intent intent = new Intent(menu_principal.this, MainActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     public boolean onSupportNavigateUp() {

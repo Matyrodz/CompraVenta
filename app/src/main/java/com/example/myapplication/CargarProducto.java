@@ -36,6 +36,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.myapplication.dao.UsuarioDAO;
+import com.example.myapplication.entidades.Usuario;
 import com.example.myapplication.entidades.Utilidades;
 
 import java.io.File;
@@ -55,6 +57,8 @@ public class CargarProducto extends AppCompatActivity implements AdapterView.OnI
     Uri ruta;
     String categoria, lat, longi;
     private LocationManager locManager;
+    UsuarioDAO userDao;
+    Usuario user;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override

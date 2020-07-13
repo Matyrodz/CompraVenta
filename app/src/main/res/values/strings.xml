@@ -79,4 +79,32 @@
     <string name="action_settings" translatable="false">Settings</string>
     <string name="hello_blank_fragment" translatable="false">Hello world</string>
 
+    <!--Fragmente Perfil-->
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="direccion">Direccion</string>
+    <string name="localidad">Localidad</string>
+    <string name="telefono">Telefono</string>
+    <string name="btn_guardar_datos">Guardar</string>
+    <string name="btn_delete_usuario">Dar Baja</string>
+    <string name="mis_datos">Mis Datos</string>
+
+    <string-array name="datos_localidades">
+        <item>Florencio Varela</item>
+        <item>Dante Ardigo</item>
+        <item>Bosques</item>
+        <item>Quilmes</item>
+        <item>Claypole</item>
+        <item>Temperley</item>
+        <item>Berazategui</item>
+        <item>Bernal</item>
+        <item>Ranelagh</item>
+        <item>Zeballos</item>
+        <item>Calzada</item>
+        <item>Lomas de Zamora</item>
+        <item>Avellaneda</item>
+        <item>Banfield</item>
+        <item>Lanus</item>
+    </string-array>
+
 </resources>

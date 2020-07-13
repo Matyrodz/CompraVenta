@@ -35,7 +35,7 @@ public class UsuarioDAO {
 
     public Usuario buscarUsuario(String nombreUsuario){
         String query = "SELECT * FROM "+Utilidades.TABLA_USUARIO
-                +" WHERE usuario='"+nombreUsuario+"'";
+                +" WHERE usuario='"+nombreUsuario+"' and activo=1";
 
         Cursor raw = sql.rawQuery(query,null);
         Usuario u = new Usuario();
@@ -45,10 +45,11 @@ public class UsuarioDAO {
                 u.setUsuario(raw.getString(raw.getColumnIndex("usuario")));
                 u.setNombre(raw.getString(raw.getColumnIndex("nombre")));
                 u.setApellido(raw.getString(raw.getColumnIndex("apellido")));
-                u.setApellido(raw.getString(raw.getColumnIndex("clave")));
-                //u.setEmail(raw.getString(raw.getColumnIndex("email")));
-                //u.setLocalidad(raw.getString(raw.getColumnIndex("localidad")));
-                //u.setDireccion(raw.getString(raw.getColumnIndex("direccion")));
+                //u.setApellido(raw.getString(raw.getColumnIndex("clave")));
+                u.setEmail(raw.getString(raw.getColumnIndex("email")));
+                u.setLocalidad(raw.getString(raw.getColumnIndex("localidad")));
+                u.setDireccion(raw.getString(raw.getColumnIndex("direccion")));
+                u.setTelefono(raw.getInt(raw.getColumnIndex("telefono")));
                 //u.setLatitud(raw.getInt(raw.getColumnIndex("latitud")));
                 //u.setLongitud(raw.getInt(raw.getColumnIndex("longitud")));
                 //u.setActivo(raw.getInt(raw.getColumnIndex("activo")));
@@ -62,7 +63,7 @@ public class UsuarioDAO {
     public Usuario buscarUsuario(String nombreUsuario, String clave){
         String query = "SELECT * FROM "+Utilidades.TABLA_USUARIO
                 +" WHERE usuario='"+nombreUsuario+"' and clave='"+clave
-                +"' and activo=1";
+                +"' and activo='1'";
 
         Cursor raw = sql.rawQuery(query,null);
         Usuario u = new Usuario();
@@ -75,6 +76,34 @@ public class UsuarioDAO {
             }while(raw.moveToNext());
         }
         return u;
+    }
+
+    public boolean actualizarUsuario(Usuario u){
+        ContentValues values = new ContentValues();
+        if(!u.getNombre().isEmpty())
+            values.put("nombre", u.getNombre());
+        if(!u.getApellido().isEmpty())
+            values.put("apellido", u.getApellido());
+        if(!u.getClave().isEmpty())
+            values.put("clave", u.getClave());
+        if(!u.getEmail().isEmpty())
+            values.put("email", u.getEmail());
+        if(!u.getLocalidad().isEmpty())
+            values.put("localidad", u.getLocalidad());
+        if(!u.getDireccion().isEmpty())
+            values.put("direccion", u.getDireccion());
+        if(u.getTelefono() != null)
+            values.put("telefono", u.getTelefono());
+        return sql.update("usuario",values,"usuario='"+u.getUsuario()+"'",null) > 0;
+
+    }
+
+    /**Es un borrado logico*/
+    public boolean deleteUsuario(Usuario u){
+        ContentValues values = new ContentValues();
+        values.put("activo",0);
+        return sql.update("usuario",values,"usuario='"+u.getUsuario()+"'",null) > 0;
+
     }
 
     public void open(){

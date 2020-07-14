@@ -28,7 +28,7 @@
     <string name="cargar_producto">Cargar Producto</string>
     <string name="nombre_producto">Nombre del producto</string>
     <string name="precio">Precio</string>
-    <string name="stock">Stock</string>
+    <string name="title_categoria">Categoria:</string>
     <string name="descripcion">Descripción</string>
     <string name="fotos">Fotos</string>
     <string name="select_img">Seleccione una imagen</string>
@@ -53,6 +53,9 @@
     <string name="ubicacion">Ver ubicación</string>
     <string name="title_activity_ubicacion_producto">Map</string>
     <string name="split">$</string>
+    <string name="agregar_carrito">Agregar al Carrito</string>
+    <string name="title_descripcion">Descripción:</string>
+    <string name="stock">Cantidad</string>
 
     <!--Strings de activities básicas -->
     <string name="title_activity_login" translatable="false">LoginActivity</string>

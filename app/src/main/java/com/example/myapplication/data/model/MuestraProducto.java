@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.myapplication.AdminSQLiteOpenHelper;
 import com.example.myapplication.R;
+import com.example.myapplication.data.model.ui.carrito.CarritoFragment;
 import com.example.myapplication.data.model.ui.home.HomeFragment;
 import com.example.myapplication.entidades.Producto;
 import com.example.myapplication.entidades.Utilidades;
@@ -28,6 +29,8 @@ public class MuestraProducto extends AppCompatActivity {
     AdminSQLiteOpenHelper conn;
     String nombre_producto, descripcion_producto, categoria_producto, precio_producto;
     Producto producto;
+    Button btn_agregar_carrito;
+    private ArrayList<String> listaCarrito;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -40,6 +43,9 @@ public class MuestraProducto extends AppCompatActivity {
         descripcion = (TextView) findViewById(R.id.descripcion_muestra);
         comprar = (Button) findViewById(R.id.comprar_producto);
         ubicacion = (Button) findViewById(R.id.ubicacion_producto);
+        btn_agregar_carrito = (Button) findViewById(R.id.agregar_carrito);
+
+        btn_agregar_carrito.setOnClickListener(agregarCarritoClick);
 
         Bundle datos = this.getIntent().getExtras();
         nombre_producto = datos.getString("nombre");
@@ -83,4 +89,17 @@ public class MuestraProducto extends AppCompatActivity {
         }
         c.close();
     }
+
+    private View.OnClickListener agregarCarritoClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(MuestraProducto.this, CarritoFragment.class);
+            Bundle b = new Bundle();
+            listaCarrito = new ArrayList<String>();
+            String producto = nombre_producto+"-$"+precio_producto;
+            listaCarrito.add(producto);
+            //b.putString();
+            //b.putL
+        }
+    };
 }

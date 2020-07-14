@@ -6,9 +6,12 @@
     tools:context=".data.model.ui.carrito.CarritoFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/list_carrito"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Carrito" />
+        android:layout_height="match_parent">
+
+    </ListView>
+
 
 </FrameLayout>
